@@ -17,13 +17,13 @@ def webhook():
 
     req = request.get_json(silent=True, force=True)
 
-    #print("Request:")
-    #print(json.dumps(req, indent=4))
+    print("Request:")
+    print(json.dumps(req, indent=4))
 
     res = processRequest(req)
 
     res = json.dumps(res, indent=4)
-    #print(res)
+    print(res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
@@ -41,7 +41,7 @@ def processRequest(req):
     log.write_log(sessionID, "User Says: "+user_says)
     parameters = result.get("parameters")
     cust_name=parameters.get("cust_name")
-    #print(cust_name)
+    print(cust_name)
     cust_contact = parameters.get("cust_contact")
     cust_email=parameters.get("cust_email")
     course_name= parameters.get("course_name")
