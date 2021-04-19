@@ -8,7 +8,9 @@ from email_templates import template_reader
 
 app = Flask(__name__)
 
-
+@app.route('/') # this is the home page route
+def hello_world(): # this is the home page function that generates the page code
+    return "Hello world!"
 
 # geting and sending response to dialogflow
 @app.route('/webhook', methods=['POST'])
